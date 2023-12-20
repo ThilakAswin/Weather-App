@@ -10,7 +10,7 @@ body
     min-height: 100%;
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
- background-image: url("../imgaes/beautiful-mountainous-landscape-background-sunny-day_16058-64.avif");
+ background-image: url("../imgaes/istockphoto-1327936604-612x612.jpg");
  background-size: cover;
 }
 
@@ -26,7 +26,7 @@ a:link, a:visited {
   a:hover, a:active {
     background-color: red;
   }
-  
+
 div.widget
 {
   position: relative;
