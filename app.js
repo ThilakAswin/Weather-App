@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const https = require("https");
 const date = require(__dirname + "/date.js")
+const alert = require("alert");
 
 const app = express();
 
@@ -11,10 +12,8 @@ app.set('view engine','ejs');
 app.use(express.static("public"));
 
 
-
-
 app.get("/",function(req,res){
-   
+
     res.render("index");
 
 })
@@ -31,6 +30,7 @@ app.post("/weather",function(req,res){
     https.get(url,function(response){
         console.log(response.statusCode);
 
+        if(response.statusCode === 200){
         response.on("data",function(data){
             
 
@@ -51,6 +51,9 @@ app.post("/weather",function(req,res){
             res.render("weather",{cityName:cityName,temp:temp,url:imageUrl,date:date.getDate(),desc:desc})
 
         })
+    }else{
+        res.redirect("/");
+    }
         
         
     })
